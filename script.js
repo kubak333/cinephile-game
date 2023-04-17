@@ -587,17 +587,40 @@
  
 ////***** Math.random() *****/
 
+// console.log(Math.random())
+
+// to nam da losowy numer, ale zawsze mniejszy mniejszy od 1, dlatego trzeba pamiętać o mnnożeniu.
+// Jeśli np. od 1 do 100: 
+
+// console.log(Math.random() * 100)
+
+// A jeżeli to jeszcze miałoby zaokrąglone do liczby całkowitej to: 
+
+// console.log(Math.floor(Math.random() * 100))
+
+// Tylko, że to nam nigdy nie da 100. Jeżeli chcielibyśmy 100 to musielibyśmy jeszcze zrobić +1
+
+// Math.floor() - zaokrągla do dolnej
+// Math.ceil() - zaokrągla do górnej
+// Math.round() - zaokrągla do najbliższej
 
 
 
+////  ZADANIE: 
 
+// const drinksMenu = ['Vodka Tonic', 'White Wine', 'Beer', 'Mocktail']
 
+// // zrób tak, żeby wybrało się losowa pozycja z menu
 
+// const drink = drinksMenu[Math.floor(Math.random() * 4)]
 
+// // a tutaj przedstawiona wersja w loopie:
 
+// for (let i = 0; i < 15; i++) {
+//     const drink = drinksMenu[Math.floor(Math.random() * 4)]
+//     console.log(drink)
+// }
 
+// // albo można to zsrobić jak Ania Kubow tzn. 
 
-
-
-
-
+// console.log(drinksMenu[Math.floot(Math.random() * drinksMenu.length)])
