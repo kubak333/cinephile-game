@@ -624,3 +624,24 @@
 // // albo można to zsrobić jak Ania Kubow tzn. 
 
 // console.log(drinksMenu[Math.floot(Math.random() * drinksMenu.length)])
+
+
+
+//// DATE ////
+
+// to jest dana o aktualnej dacie
+
+const today = new Date()
+console.log(today)
+
+const date = today.getDate()
+console.log(date)
+
+const day = today.getDay()
+console.log(day)
+
+const fullYear = today.getFullYear()
+console.log(fullYear)
+
+const hours = today.getHours()
+console.log(hours)
