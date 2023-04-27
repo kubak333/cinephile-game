@@ -624,3 +624,63 @@
 // // albo można to zsrobić jak Ania Kubow tzn. 
 
 // console.log(drinksMenu[Math.floot(Math.random() * drinksMenu.length)])
+
+
+
+
+//// DATE
+
+// const today = new Date()
+
+// console.log(today)
+
+// Date() jest konstruktorem w javascripcie.
+// Wynik console.loga to: Thu Apr 27 2023 23:31:35 GMT+0200 (czas środkowoeuropejski letni)
+
+
+// const today = new Date()
+
+// const date = today.getDate()
+// console.log(date)
+// // to daje dzień miesiąca
+
+
+// const day = today.getDay()
+// console.log(day)
+// // to daje dzień tygodnia wyrazony liczbowo (bo mamy rózne slowniki - dlatego nie slownie)
+
+// const fullYear = today.getFullYear()
+// console.log(fullYear)
+// // to da nam rok
+
+// const hours = today.getHours()
+// console.log(hours)
+// // to da nam pełną odzinę
+
+// const isoString = today.toISOString()
+// console.log(isoString)
+// // to jest zapis daty przyjęty przez programistów
+
+
+
+
+// Przykład praktyczny
+
+ const dateDisplay = document.querySelector('.date')
+
+const today = new Date()
+const Christmas = new Date('2023-12-24T14:42:17.833Z')
+
+console.log(Christmas - today)
+// to wyrazi nam informacje ile jest czasu do świąt w 2023 w milisekundach
+
+const millsecondsToXmas = Christmas - today
+const minutes = millsecondsToXmas / 60000
+
+// a tak np. byłyby dni: 
+// // // const minutes = millsecondsToXmas / 60000 / 60 / 24
+
+console.log(minutes);
+dateDisplay.innerHTML = Math.round(minutes)
+
+
