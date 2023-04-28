@@ -628,7 +628,7 @@
 
 
 
-//// DATE
+//// ************* DATE ****************
 
 // const today = new Date()
 
@@ -666,21 +666,71 @@
 
 // Przykład praktyczny
 
- const dateDisplay = document.querySelector('.date')
+//  const dateDisplay = document.querySelector('.date')
 
-const today = new Date()
-const Christmas = new Date('2023-12-24T14:42:17.833Z')
+// const today = new Date()
+// const Christmas = new Date('2023-12-24T14:42:17.833Z')
 
-console.log(Christmas - today)
-// to wyrazi nam informacje ile jest czasu do świąt w 2023 w milisekundach
+// console.log(Christmas - today)
+// // to wyrazi nam informacje ile jest czasu do świąt w 2023 w milisekundach
 
-const millsecondsToXmas = Christmas - today
-const minutes = millsecondsToXmas / 60000
+// const millsecondsToXmas = Christmas - today
+// const minutes = millsecondsToXmas / 60000
 
-// a tak np. byłyby dni: 
-// // // const minutes = millsecondsToXmas / 60000 / 60 / 24
+// // a tak np. byłyby dni: 
+// // // // const minutes = millsecondsToXmas / 60000 / 60 / 24
 
-console.log(minutes);
-dateDisplay.innerHTML = Math.round(minutes)
+// console.log(minutes);
+// dateDisplay.innerHTML = Math.round(minutes)
 
+
+
+
+
+
+// // // //*********** TIMERS **********// // // // 
+
+
+
+
+
+
+// SET TIMEOUT
+
+// To wywołuje jakąś funkcję po upływie określonego czasu
+
+// setTimeout(function, milliseconds)
+
+// w nawiasie przekazujemy argumenty - pierwszy to funkcja, która zostanie wywołana. Drugi to czas, który musi upłynąć wyrazony w milusekundach
+
+// const time = 5000
+
+// function showText ()
+// {
+// console.log('all good!')
+// }
+
+// setTimeout(showText, time)
+
+// czyli ta funkcja działa tak, ze po 5 sekundach pojawi się w konsoli tekst "All good!"
+
+
+
+// A teraz funkcja, która zmieni coś na stronie
+
+// const circle = document.querySelector('.circle')
+
+// const time = 3000;
+
+// function showText() {
+//     circle.innerHTML = 'Hey Dude'
+// }
+
+// setTimeout(showText, time);
+
+
+
+
+
+// // SET INTERVAL
 
