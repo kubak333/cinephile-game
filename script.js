@@ -734,3 +734,23 @@
 
 // // SET INTERVAL
 
+// Wywołuje funkcję w interwale: 
+// setInterval(function, milliseconds)
+
+
+// const circle = document.querySelector('.circle')
+// const text = 'Alert!'
+// const time = 2000;
+
+
+// function showAlert () {
+//     const textDisplay = document.createElement('div')
+//     textDisplay.innerHTML = text
+//     circle.appendChild(textDisplay)
+
+// }
+
+
+// setInterval(showAlert, 2000)
+
+
