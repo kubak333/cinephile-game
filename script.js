@@ -754,3 +754,24 @@
 // setInterval(showAlert, 2000)
 
 
+
+
+
+// CLEAR INTERVAL 
+
+// Ta metoda stopuje wykonywnie interwału
+// Ponizej przykład. 
+
+const circle = document.querySelector('.circle') // wybieramy kółko z HTMLa
+let height = 100; // wprowadzamy zmienną wysokość do wykorzystania w ponizszej funkcji
+
+function moveCircle() {
+    height += 50 // inkrementacja zmiennej height o 50
+    circle.style.top = height + 'px' // wybieramy w stałej circle styl top odwujący element od górnej krawędzi. Dodajemy piksele tak jak to jest w stylach
+    console.log(height) // log dla nas, zebyśmy widzieli w konsoli jaką ma wartość
+    if (height === 300) {
+    clearInterval(interval)
+    } // wyrazenie warunkowe. Jezeli height osiągnie wartość 300, to wówczas interval wskazany w argumencie (ponizej stworzona stała interval się zatrzyma)
+}
+
+const interval = setInterval(moveCircle, 2000)
