@@ -757,21 +757,61 @@
 
 
 
-// CLEAR INTERVAL 
+// // CLEAR INTERVAL 
 
-// Ta metoda stopuje wykonywnie interwału
-// Ponizej przykład. 
+// // Ta metoda stopuje wykonywnie interwału
+// // Ponizej przykład. 
 
-const circle = document.querySelector('.circle') // wybieramy kółko z HTMLa
-let height = 100; // wprowadzamy zmienną wysokość do wykorzystania w ponizszej funkcji
+// const circle = document.querySelector('.circle') // wybieramy kółko z HTMLa
+// let height = 100; // wprowadzamy zmienną wysokość do wykorzystania w ponizszej funkcji
 
-function moveCircle() {
-    height += 50 // inkrementacja zmiennej height o 50
-    circle.style.top = height + 'px' // wybieramy w stałej circle styl top odwujący element od górnej krawędzi. Dodajemy piksele tak jak to jest w stylach
-    console.log(height) // log dla nas, zebyśmy widzieli w konsoli jaką ma wartość
-    if (height === 300) {
-    clearInterval(interval)
-    } // wyrazenie warunkowe. Jezeli height osiągnie wartość 300, to wówczas interval wskazany w argumencie (ponizej stworzona stała interval się zatrzyma)
+// function moveCircle() {
+//     height += 50 // inkrementacja zmiennej height o 50
+//     circle.style.top = height + 'px' // wybieramy w stałej circle styl top odwujący element od górnej krawędzi. Dodajemy piksele tak jak to jest w stylach
+//     console.log(height) // log dla nas, zebyśmy widzieli w konsoli jaką ma wartość
+//     if (height === 300) {
+//     clearInterval(interval)
+//     } // wyrazenie warunkowe. Jezeli height osiągnie wartość 300, to wówczas interval wskazany w argumencie (ponizej stworzona stała interval się zatrzyma)
+// }
+
+// const interval = setInterval(moveCircle, 2000)
+
+
+
+
+
+
+
+
+// // *********** CLASSES **********
+
+
+// Klasy to swego rodzaju szablony do tworzenia nowych obiektów
+// Przyspiesza to bardzo pracę tworząc rozbudowane obiekty
+
+//Ponizej składnia:
+// class nazwaObiektu {
+//     constructor(atrybut1, atrybut2, atrybut3, atrybut4) {
+//         this.atrybut1 = atrybut1; 
+//         this.atrybut2 = atrybut2;
+//         this.atrybut3 = atrybut3;
+//         this.atrybut4 = atrybut4;
+//     }
+// }
+
+
+// Realny przykład:
+
+class person {
+    constructor(imię, nazwisko, wiek, wzrost) {
+        this.imię = imię; 
+        this.nazwisko = nazwisko;
+        this.wiek = wiek;
+        this.wzrost = wzrost;
+    }
 }
 
-const interval = setInterval(moveCircle, 2000)
+
+
+const Jarek = new person ('Jarek', 'Nowak', 46, 178)
+console.log(Jarek)
