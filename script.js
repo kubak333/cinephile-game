@@ -783,11 +783,13 @@
 
 
 
+
+
 // // *********** CLASSES **********
 
 
-// Klasy to swego rodzaju szablony do tworzenia nowych obiektów
-// Przyspiesza to bardzo pracę tworząc rozbudowane obiekty
+// // Klasy to swego rodzaju szablony do tworzenia nowych obiektów
+// // Przyspiesza to bardzo pracę tworząc rozbudowane obiekty
 
 //Ponizej składnia:
 // class nazwaObiektu {
@@ -800,18 +802,52 @@
 // }
 
 
-// Realny przykład:
+// // Realny przykład:
 
-class person {
-    constructor(imię, nazwisko, wiek, wzrost) {
-        this.imię = imię; 
-        this.nazwisko = nazwisko;
-        this.wiek = wiek;
-        this.wzrost = wzrost;
+// class person {
+//     constructor(imię, nazwisko, wiek, wzrost) {
+//         this.imię = imię; 
+//         this.nazwisko = nazwisko;
+//         this.wiek = wiek;
+//         this.wzrost = wzrost;
+//     }
+// }
+
+
+// // a mając juz zdefiniowaną klasę te nowe obiekty tworzymy z uzyciem keyworda new 
+
+
+// const Jarek = new person ('Jarek', 'Nowak', 46, 178)
+// console.log(Jarek)
+
+
+
+
+
+
+
+
+
+
+// // ********** KEYS OF KEYBOARD EVENTS **********
+
+
+const circle = document.querySelector('.circle');
+
+    function control(event) {
+        if (event.key === 'ArrowLeft') { // ArrowLeft jest zaszyte w js, tego się uzywa
+            console.log ('pressed left')
+        }
+        if (event.key === 'ArrowRight') { // ArrowRight jest zaszyte w js, tego się uzywa
+            console.log ('pressed right')
+        }
+        if (event.key === 'ArrowDown') { // ArrowDown jest zaszyte w js, tego się uzywa
+            console.log ('pressed down')
+        }
+        if (event.key === 'ArrowUp') { // ArrowUp jest zaszyte w js, tego się uzywa
+            console.log ('pressed up')
+        }
     }
-}
+    
+document.addEventListener('keydown', control) // keydown jest zaszyte w js, tego się uzywa. Gdybyśmy zrobili keyup to funkcja wywołałaby się dopiero po zwolnieniu klawisza. Moglibyśmy go "naciągnąć".
 
-
-
-const Jarek = new person ('Jarek', 'Nowak', 46, 178)
-console.log(Jarek)
