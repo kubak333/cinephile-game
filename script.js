@@ -935,3 +935,57 @@
 // document.addEventListener('keydown', control)
 
 
+
+
+
+
+
+
+
+
+// // ********** SORT **********
+
+
+// // sort() sortuje array alfabetycznie:
+
+// const planets = ['Mars', 'Jupiter', 'Uranus', 'Earth']
+
+// console.log(planets.sort())
+
+
+// // ale moze takze sofrować numery:
+
+// const numbers = [6,78, 44, 21, 4, 15, 8, 99, 11, 12, 13, 55, 53, 23, 1, 3, 6]
+
+// console.log(numbers.sort()) // [1, 11, 12, 13, 15, 21, 23, 3, 4, 44, 53, 55, 6, 6, 78, 8, 99]
+// // to nie jest po kolei, jest alfabetycznie. Zeby było po kolei musimy się trochę bardziej wysilić: 
+
+// console.log(numbers.sort(function(a, b) {return a - b})); // tutaj jako argument wstawiamy zaszytą w js funkcje, która bierze po kolei elementy z tablicy i sprawdza który jest większy. Jeśli wynik jest mniejszy od zera, to a zostanie ustawione przed b w tablicy. Jeśli wynik jest większy od zera, to b zostanie ustawione przed a w tablicy. Jeśli wynik jest równy zero, to a i b pozostają w niezmienionej kolejności.
+
+
+
+
+
+
+// // ********** INCLUDES **********
+
+// // Sprawdza czy tablica zawiera dany element i zwraca true lub false
+
+// const books = ['Romeo i Julia', 'Quo Vadis', 'Proces']
+
+// const ifIncludes = books.includes('Quo Vadis')
+
+// console.log(ifIncludes);
+
+
+
+
+
+// // ********** CONTAINS **********
+
+
+const body = document.querySelector('body');
+const circle = document.querySelector('.circle');
+
+console.log(body.contains(circle))
+console.log(body.contains(div))
