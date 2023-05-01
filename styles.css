@@ -9,6 +9,7 @@ body {
   background-color: red;
   position: absolute;
   top: 100px;
+  left: 0px;
   height: 100px;
   width: 100px;
   border-radius: 100px;
@@ -37,3 +38,4 @@ body {
   align-items: center;
 
 }
+

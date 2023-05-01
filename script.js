@@ -832,22 +832,106 @@
 // // ********** KEYS OF KEYBOARD EVENTS **********
 
 
-const circle = document.querySelector('.circle');
 
-    function control(event) {
-        if (event.key === 'ArrowLeft') { // ArrowLeft jest zaszyte w js, tego się uzywa
-            console.log ('pressed left')
-        }
-        if (event.key === 'ArrowRight') { // ArrowRight jest zaszyte w js, tego się uzywa
-            console.log ('pressed right')
-        }
-        if (event.key === 'ArrowDown') { // ArrowDown jest zaszyte w js, tego się uzywa
-            console.log ('pressed down')
-        }
-        if (event.key === 'ArrowUp') { // ArrowUp jest zaszyte w js, tego się uzywa
-            console.log ('pressed up')
-        }
-    }
+
+// const circle = document.querySelector('.circle');
+
+//     function control(event) {
+//         if (event.key === 'ArrowLeft') { // ArrowLeft jest zaszyte w js, tego się uzywa. Wcześniej w js zamiast .key uzywano .keyCode co wymagało znalezienia w necie keycode'u przypisanego do danego klawisza np. byłoby event.keyCode === "39" i to jest jakiś tam klawisz
+//             console.log ('pressed left')
+//         }
+//         if (event.key === 'ArrowRight') { // ArrowRight jest zaszyte w js, tego się uzywa
+//             console.log ('pressed right')
+//         }
+//         if (event.key === 'ArrowDown') { // ArrowDown jest zaszyte w js, tego się uzywa
+//             console.log ('pressed down')
+//         }
+//         if (event.key === 'ArrowUp') { // ArrowUp jest zaszyte w js, tego się uzywa
+//             console.log ('pressed up')
+//         }
+//     }
     
-document.addEventListener('keydown', control) // keydown jest zaszyte w js, tego się uzywa. Gdybyśmy zrobili keyup to funkcja wywołałaby się dopiero po zwolnieniu klawisza. Moglibyśmy go "naciągnąć".
+// document.addEventListener('keydown', control) // keydown jest zaszyte w js, tego się uzywa. Gdybyśmy zrobili keyup to funkcja wywołałaby się dopiero po zwolnieniu klawisza. Moglibyśmy go "naciągnąć".
+
+
+
+
+
+
+
+
+
+// // ********** SWITCH CASE **********
+
+
+// // Trochę nie wiem czym rózni się ten switch case od ifa i raczej będę uzywał ifa, ale tłumaczą to tak, ze switch case sprawdza spełnienei warunku dla jednej wartości argumentu, a if dla róznych warónków
+
+// const circle = document.querySelector('.circle');
+
+// function control (e) {
+//     switch (e.key) {
+//         case 'ArrowLeft':
+//             console.log('pressedLeft');
+//             break;
+//         case 'ArrowRight':
+//             console.log('pressedRight');
+//             break;
+//         case 'ArrowUp':
+//             console.log('pressedUp');
+//             break;
+//         case 'ArrowDown':
+//             console.log('pressedDown');
+//             break;
+//         default:
+//             console.log('key not recognised');
+            
+//     }
+// }
+
+// document.addEventListener('keydown', control)
+
+
+
+
+
+
+// a tutaj realny przykład ze sterowaniem kółkiem:
+
+
+// const circle = document.querySelector('.circle');
+// let yAxis = 100
+// let xAxis = 0
+
+
+
+// function control (e) {
+//     switch (e.key) {
+//         case 'ArrowLeft':
+//             xAxis -= 25
+//             circle.style.left = xAxis + 'px';
+//             console.log('pressedLeft');
+//             break;
+//         case 'ArrowRight':
+//             xAxis += 25
+//             circle.style.left = xAxis + 'px';
+//             console.log('pressedRight');
+//             break;
+//         case 'ArrowUp':
+//             console.log('pressedUp');
+//             yAxis -= 25
+//             circle.style.top = yAxis + 'px';
+//             break;
+//         case 'ArrowDown':
+//             console.log('pressedDown');
+//             yAxis += 25
+//             circle.style.top = yAxis + 'px';
+//             break;
+//         default:
+//             console.log('key not recognised');
+            
+//     }
+// }
+
+// document.addEventListener('keydown', control)
+
 
