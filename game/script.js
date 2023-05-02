@@ -1,34 +1,21 @@
-
 // TIMER
 
+// const timerElement = document.getElementById('timer');
+// let timeLeft = 30;
 
-// Pobranie elementu span, w którym będzie wyświetlany czas
-const timerElement = document.getElementById('timer');
+// function counter() {
+//     timeLeft--;
+//     timerElement.textContent = timeLeft;
+//     if (timeLeft === 0) {
+//         clearInterval(countdownTimer);
+//         alert('Czas minął!');
+//         }
+// }
 
-// Ustawienie startowego czasu w sekundach
-let timeLeft = 30;
-
-// Uruchomienie odliczania
-const countdownTimer = setInterval(() => {
-  // Dekrementacja pozostałego czasu
-  timeLeft--;
-
-  // Wyświetlenie pozostałego czasu w elemencie span
-  timerElement.textContent = timeLeft;
-
-  // Sprawdzenie, czy czas się skończył
-  if (timeLeft === 0) {
-    clearInterval(countdownTimer);
-    alert('Czas minął!');
-  }
-}, 1000);
+// const countdownTimer = setInterval(counter, 1000);
 
 
-
-
-
-
-
+// MECHANICS
 
 const map = document.querySelector("#map");
 const character = document.querySelector("#character");
@@ -42,7 +29,7 @@ let y = (map.offsetHeight - characterHeight) / 2;
 function moveCharacter(event) {
   switch (event.code) {
     case "ArrowUp":
-      if (y > 0) {
+      if (y > 10) {
         y -= 10;
       }
       break;
@@ -52,7 +39,7 @@ function moveCharacter(event) {
       }
       break;
     case "ArrowLeft":
-      if (x > 0) {
+      if (x > 10) {
         x -= 10;
       }
       break;
