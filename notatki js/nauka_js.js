@@ -898,41 +898,41 @@
 // // a tutaj realny przykład ze sterowaniem kółkiem:
 
 
-const circle = document.querySelector('.circle');
-let yAxis = 100
-let xAxis = 0
+// const circle = document.querySelector('.circle');
+// let yAxis = 100
+// let xAxis = 0
 
 
 
-function control (e) {
-    switch (e.key) {
-        case 'ArrowLeft':
-            xAxis -= 25
-            circle.style.left = xAxis + 'px';
-            console.log('pressedLeft');
-            break;
-        case 'ArrowRight':
-            xAxis += 25
-            circle.style.left = xAxis + 'px';
-            console.log('pressedRight');
-            break;
-        case 'ArrowUp':
-            console.log('pressedUp');
-            yAxis -= 25
-            circle.style.top = yAxis + 'px';
-            break;
-        case 'ArrowDown':
-            console.log('pressedDown');
-            yAxis += 25
-            circle.style.top = yAxis + 'px';
-            break;
-        default:
-            console.log('key not recognised');
+// function control (e) {
+//     switch (e.key) {
+//         case 'ArrowLeft':
+//             xAxis -= 25
+//             circle.style.left = xAxis + 'px';
+//             console.log('pressedLeft');
+//             break;
+//         case 'ArrowRight':
+//             xAxis += 25
+//             circle.style.left = xAxis + 'px';
+//             console.log('pressedRight');
+//             break;
+//         case 'ArrowUp':
+//             console.log('pressedUp');
+//             yAxis -= 25
+//             circle.style.top = yAxis + 'px';
+//             break;
+//         case 'ArrowDown':
+//             console.log('pressedDown');
+//             yAxis += 25
+//             circle.style.top = yAxis + 'px';
+//             break;
+//         default:
+//             console.log('key not recognised');
             
-    }
-}
+//     }
+// }
 
-document.addEventListener('keydown', control)
+// document.addEventListener('keydown', control)
 
 
 

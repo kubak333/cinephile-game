@@ -1,0 +1,27 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* styl dla mapy */
+  #map {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background-color: black;
+  }
+
+  /* styl dla postaci */
+  #character {
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background-color: red;
+  }
