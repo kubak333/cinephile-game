@@ -2,6 +2,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: rgb(221, 184, 221);
   }
 
   /* mapa */
@@ -13,7 +14,7 @@ html, body {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 80%;
-    background-color: black;
+    background-color: white;
   }
 
   /* bohater */
@@ -22,9 +23,10 @@ html, body {
     top: 200px;
     left: 200px;
     transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     background-color: red;
+    border: 1.5px solid black;
   }
 
 /* paski stanu */
@@ -59,7 +61,7 @@ html, body {
     left: 0%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   }
 
   .sala2 {
@@ -71,7 +73,7 @@ html, body {
     left: 47%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   }
 
   .sala3 {
@@ -83,7 +85,7 @@ html, body {
     left: 94%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   }
 
  .sala4 {
@@ -95,7 +97,7 @@ html, body {
     left: 0%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   }
 
   .sala5 {
@@ -107,7 +109,7 @@ html, body {
     left: 47%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   }
   
   .sala6 {
@@ -119,7 +121,7 @@ html, body {
     left: 94%;
     width: 6%;
     height: 8%;
-    background-color: blue;
+    background-color: rgb(255, 0, 128);
   } 
 
   .bistro {
@@ -127,11 +129,12 @@ html, body {
     align-items: center;
     justify-content: center;
     position: absolute;
+    border: 2px solid black;
     top: 40%;
-    left: 97%;
+    left: 96.8%;
     width: 3%;
     height: 20%;
-    background-color: blue;
+    background-color: rgb(255, 0, 0);
   } 
 
   .wc {
@@ -139,11 +142,12 @@ html, body {
     align-items: center;
     justify-content: center;
     position: absolute;
+    border: 2px solid black;
     top: 47%;
     left: 0%;
     width: 3%;
     height: 8%;
-    background-color: blue;
+    background-color: yellow;
   } 
 
 .sala-text {
@@ -161,7 +165,7 @@ html, body {
 }
 
 .wc-text {
-    color: white;
+    color: black;
     transform: rotate(-90deg);
 }
 

@@ -88,6 +88,8 @@ function healthFunction() {
   if (healthPoints === 0) {
     clearInterval(countdownTimer);
     clearInterval(scoreInterval);
+    clearInterval(healthInterval)
+    clearInterval(bladderInterval);
     alert(`Zemdlałeś z głodu! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
         }
 }
@@ -109,6 +111,7 @@ function bladderFunction() {
   if (bladderPoints === 80) {
     clearInterval(countdownTimer);
     clearInterval(scoreInterval);
+    clearInterval(healthInterval)
     clearInterval(bladderInterval);
     alert(`Nie zdążyleś do toalety! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
         }
@@ -118,28 +121,71 @@ const bladderInterval = setInterval(bladderFunction,1000);
 
 
 
-// PAUZA
+// NPC 
 
-let isPaused = false;
 
-function pauseGame() {
-  if (!isPaused) {
-    clearInterval(countdownTimer);
-    clearInterval(scoreInterval);
-    clearInterval(healthInterval);
-    clearInterval(bladderInterval);
-    isPaused = true;
-  } else {
-    countdownTimer = setInterval(counter, 1000);
-    scoreInterval = setInterval(scoreFunction, 100);
-    healthInterval = setInterval(healthFunction, 700);
-    bladderInterval = setInterval(bladderFunction, 1000);
-    isPaused = false;
+
+// WSKAZYWANIE SALI I DODAWANIE CZASU
+
+const movies = ['Climax', 'Szatańskie tango', 'Midsommar', 'Wielkie piękno', 'Paterson', 'Służąca', 'Toni Ermann'];
+const movieNameElement = document.getElementById('movie-name');
+const nrSaliElement = document.getElementById('nr-sali');
+
+
+const randomMovie = movies[Math.floor(Math.random() * movies.length)];
+const randomNrSali = Math.floor(Math.random() * 6) + 1;
+
+
+movieNameElement.textContent = randomMovie;
+nrSaliElement.textContent = randomNrSali;
+
+
+
+// COLLISIONS - BLADDERBAR
+
+
+const wc = document.querySelector(".wc");
+
+function checkWcCollision() {
+  const characterRect = character.getBoundingClientRect();
+  const wcRect = wc.getBoundingClientRect();
+  
+  if (
+    characterRect.left < wcRect.right &&
+    characterRect.right > wcRect.left &&
+    characterRect.top < wcRect.bottom &&
+    characterRect.bottom > wcRect.top
+  ) {
+    console.log('Collision!');
+    bladderPoints = -1;
+  
   }
 }
 
-document.addEventListener("keydown", function(event) {
-  if (event.code === "KeyP") {
-    pauseGame();
+document.addEventListener("keydown", checkWcCollision);
+
+
+
+// COLLISIONS - HEALTHBAR
+
+
+
+const bistro = document.querySelector(".bistro");
+
+function checkBistroCollision() {
+  const characterRect = character.getBoundingClientRect();
+  const bistroRect = bistro.getBoundingClientRect();
+  
+  if (
+    characterRect.left < bistroRect.right &&
+    characterRect.right > bistroRect.left &&
+    characterRect.top < bistroRect.bottom &&
+    characterRect.bottom > bistroRect.top
+  ) {
+    console.log('Collision!');
+    healthPoints = 80;
+  
   }
-});
+}
+
+document.addEventListener("keydown", checkBistroCollision);
