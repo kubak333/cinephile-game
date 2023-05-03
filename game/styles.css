@@ -27,6 +27,26 @@ html, body {
     background-color: red;
   }
 
+/* paski stanu */
+  .health {
+    position: absolute;
+    height: 80%;
+    width: 2.5%;
+    left: 2.5%;
+    bottom: 5%;
+    background-color: red;
+    border: 2px solid black;
+  }
+
+  .bladder {
+    position: absolute;
+    height: 0%;
+    width: 2.5%;
+    right: 2.5%;
+    bottom: 5%;
+    background-color: yellow;
+    border: 2px solid black;
+    }
 
 
   /* sale */
