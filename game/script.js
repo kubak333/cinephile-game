@@ -1,18 +1,33 @@
 // TIMER
 
-// const timerElement = document.getElementById('timer');
-// let timeLeft = 30;
+const timerElement = document.getElementById('timer');
+let timeLeft = 30;
 
-// function counter() {
-//     timeLeft--;
-//     timerElement.textContent = timeLeft;
-//     if (timeLeft === 0) {
-//         clearInterval(countdownTimer);
-//         alert('Czas minął!');
-//         }
-// }
+function counter() {
+    timeLeft--;
+    timerElement.textContent = timeLeft;
+}
 
-// const countdownTimer = setInterval(counter, 1000);
+const countdownTimer = setInterval(counter, 1000);
+
+
+// SCORE
+
+const scoreElement = document.getElementById('score');
+let scoreCounter = 0;
+
+function scoreFunction() {
+  scoreCounter++;
+  scoreElement.textContent = scoreCounter;
+  if (timeLeft === 0) {
+    clearInterval(countdownTimer);
+    clearInterval(scoreInterval);
+    alert(`Czas minął! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+        }
+}
+
+const scoreInterval = setInterval(scoreFunction, 100);
+
 
 
 // MECHANICS
@@ -60,3 +75,6 @@ window.addEventListener("resize", () => {
   x = (map.offsetWidth - characterWidth) / 2;
   y = (map.offsetHeight - characterHeight) / 2;
 });
+
+
+
