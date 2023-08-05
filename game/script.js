@@ -1,3 +1,5 @@
+// LICZNIK CZASU
+
 const timerElement = document.getElementById('timer');
 let timeLeft = 30;
 
@@ -7,6 +9,9 @@ function counter() {
 }
 
 const countdownTimer = setInterval(counter, 1000);
+
+
+// LICZNIK PUNKTÓW 
 
 const scoreElement = document.getElementById('score');
 let scoreCounter = 0;
@@ -25,6 +30,8 @@ function scoreFunction() {
 
 const scoreInterval = setInterval(scoreFunction, 100);
 
+// BOHATER - MECHANIKA
+
 const map = document.querySelector("#map");
 const character = document.querySelector("#character");
 const characterWidth = character.offsetWidth;
@@ -35,23 +42,23 @@ let y = (map.offsetHeight - characterHeight) / 2;
 function moveCharacter(event) {
   switch (event.code) {
     case "ArrowUp":
-      if (y > 3) {
-        y -= 3;
+      if (y > 5) {
+        y -= 5;
       }
       break;
     case "ArrowDown":
       if (y < map.offsetHeight - characterHeight) {
-        y += 3;
+        y += 5;
       }
       break;
     case "ArrowLeft":
       if (x > 5) {
-        x -= 3;
+        x -= 5;
       }
       break;
     case "ArrowRight":
       if (x < map.offsetWidth - characterWidth) {
-        x += 3;
+        x += 5;
       }
       break;
   }
@@ -66,6 +73,8 @@ window.addEventListener("resize", () => {
   x = (map.offsetWidth - characterWidth) / 2;
   y = (map.offsetHeight - characterHeight) / 2;
 });
+
+// PASEK ŻYCIA
 
 const healthbar = document.querySelector('.health');
 let healthPoints = 80;
@@ -83,6 +92,8 @@ function healthFunction() {
 }
 
 const healthInterval = setInterval(healthFunction, 700);
+
+// PASEK PĘCHERZA
 
 const bladderbar = document.querySelector('.bladder');
 let bladderPoints = 0;
@@ -133,6 +144,8 @@ function showMovieAndNrSali() {
   }
 }
 
+// KOLIZJA Z SALĄ - ZMIANA FILMU
+
 showMovieAndNrSali();
 
 function checkSalaCollision() {
@@ -154,6 +167,9 @@ function checkSalaCollision() {
 
 document.addEventListener("keydown", checkSalaCollision);
 
+
+// KOLIZJA Z WC I PUNKTY PĘCHERZA
+
 const wc = document.querySelector(".wc");
 
 function checkWcCollision() {
@@ -172,6 +188,8 @@ function checkWcCollision() {
 }
 
 document.addEventListener("keydown", checkWcCollision);
+
+// KOLIZJA Z BISTRO I PUNKTY GŁODU
 
 const bistro = document.querySelector(".bistro");
 
@@ -192,7 +210,91 @@ function checkBistroCollision() {
 
 document.addEventListener("keydown", checkBistroCollision);
 
-
-
 // NPC
 
+const npcContainer = document.getElementById('map');
+const maxNpcs = 50;
+let npcCount = 5;
+let npcSpeed = 3; // Prędkość NPC (tak samo jak bohater)
+const npcSize = 8; // Rozmiar NPC
+
+const npcList = [];
+
+function createNpc() {
+  const npc = document.createElement('div');
+  npc.className = 'npc';
+  npc.style.backgroundColor = 'red';
+  npc.style.width = npcSize + 'px';
+  npc.style.height = npcSize + 'px';
+
+  npcContainer.appendChild(npc);
+
+  const npcObj = {
+    element: npc,
+    x: Math.random() * (map.offsetWidth - npcSize),
+    y: Math.random() * (map.offsetHeight - npcSize),
+    direction: { x: 1, y: 0 },
+    changeDirectionTimer: setInterval(() => {
+      npcObj.direction.x = Math.random() > 0.5 ? 1 : -1;
+      npcObj.direction.y = Math.random() > 0.5 ? 1 : -1;
+    }, 4000),
+  };
+
+  npcList.push(npcObj);
+}
+
+function moveNpcs() {
+  npcList.forEach((npc) => {
+    npc.x += npc.direction.x * npcSpeed;
+    npc.y += npc.direction.y * npcSpeed;
+
+    if (npc.x < 0) npc.x = 0;
+    if (npc.y < 0) npc.y = 0;
+    if (npc.x > map.offsetWidth - npcSize)
+      npc.x = map.offsetWidth - npcSize;
+    if (npc.y > map.offsetHeight - npcSize)
+      npc.y = map.offsetHeight - npcSize;
+
+    npc.element.style.left = npc.x + 'px';
+    npc.element.style.top = npc.y + 'px';
+
+    const characterRect = character.getBoundingClientRect();
+    const npcRect = npc.element.getBoundingClientRect();
+
+    if (
+      characterRect.left < npcRect.right &&
+      characterRect.right > npcRect.left &&
+      characterRect.top < npcRect.bottom &&
+      characterRect.bottom > npcRect.top
+    ) {
+      if (timeLeft >= 3) {
+        timeLeft -= 3;
+        clearInterval(npcObj.changeDirectionTimer);
+        setTimeout(() => {
+          npcObj.changeDirectionTimer = setInterval(() => {
+            npcObj.direction.x = Math.random() > 0.5 ? 1 : -1;
+            npcObj.direction.y = Math.random() > 0.5 ? 1 : -1;
+          }, 3000);
+        }, 3000);
+      }
+    }
+  });
+}
+
+function checkNpcCount() {
+  if (npcCount < maxNpcs && scoreCounter >= npcCount * 300) {
+    npcCount++;
+    createNpc();
+  }
+}
+
+setInterval(moveNpcs, 1000 / 60); // Aktualizacja ruchu NPC co 60 klatek na sekundę
+setInterval(checkNpcCount, 1000); // Sprawdzanie co sekundę, czy trzeba dodać nowego NPC
+
+// TWORZĘ 3 NPC NA START
+createNpc();
+createNpc();
+createNpc();
+
+// TWORZĘ NOWEGO NPC CO 10 SEKUND
+const newNPC = setInterval(createNpc, 10000);

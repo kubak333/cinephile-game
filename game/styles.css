@@ -2,13 +2,36 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-y: hidden;
     background-color: rgb(221, 184, 221);
+  }
+
+
+  p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+
+  #heading-text {
+    text-align: center;
+    line-height: 0.5;
+    margin-left: auto;
+    margin-right:auto;
+  }
+
+  #movie-name {
+    font-weight: 800;
+  }
+
+  #nr-sali {
+    font-weight: 800;
   }
 
   /* mapa */
   #map {
     position: absolute;
     margin-top: 50px;
+    margin-bottom: 0;
+    padding: 0%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -28,6 +51,18 @@ html, body {
     background-color: blue;
     border: 1.5px solid black;
   }
+
+
+.npc {
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border: 1.5px solid black;
+}
 
 /* paski stanu */
   .health {
