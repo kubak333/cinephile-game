@@ -87,7 +87,7 @@ function healthFunction() {
     clearInterval(scoreInterval);
     clearInterval(healthInterval);
     clearInterval(bladderInterval);
-    alert(`Zemdlałeś z głodu! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+    alert(`Zemdlał_ś z głodu! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
   }
 }
 
@@ -106,13 +106,13 @@ function bladderFunction() {
     clearInterval(scoreInterval);
     clearInterval(healthInterval);
     clearInterval(bladderInterval);
-    alert(`Nie zdążyleś do toalety! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+    alert(`Nie zdążył_ś do toalety! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
   }
 }
 
 const bladderInterval = setInterval(bladderFunction, 1000);
 
-const movies = ['Climax', 'Szatańskie tango', 'Midsommar', 'Wielkie piękno', 'Paterson', 'Służąca', 'Toni Ermann'];
+const movies = ['Climax', 'Szatańskie tango', 'Midsommar', 'Wielkie piękno', 'Paterson', 'Służąca', 'Toni Erdmann'];
 const movieNameElement = document.getElementById('movie-name');
 const nrSaliElement = document.getElementById('nr-sali');
 
