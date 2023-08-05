@@ -43,23 +43,23 @@ let y = (map.offsetHeight - characterHeight) / 2;
 function moveCharacter(event) {
   switch (event.code) {
     case "ArrowUp":
-      if (y > 10) {
-        y -= 10;
+      if (y > 3) {
+        y -= 3;
       }
       break;
     case "ArrowDown":
       if (y < map.offsetHeight - characterHeight) {
-        y += 10;
+        y += 3;
       }
       break;
     case "ArrowLeft":
-      if (x > 10) {
-        x -= 10;
+      if (x > 5) {
+        x -= 3;
       }
       break;
     case "ArrowRight":
       if (x < map.offsetWidth - characterWidth) {
-        x += 10;
+        x += 3;
       }
       break;
   }
@@ -79,7 +79,7 @@ window.addEventListener("resize", () => {
 // HELTHBAR
 
 const healthbar = document.querySelector('.health');
-let healthPoints = 80;
+let healthPoints = 80;  
 
 
 function healthFunction() {
@@ -135,9 +135,54 @@ const nrSaliElement = document.getElementById('nr-sali');
 const randomMovie = movies[Math.floor(Math.random() * movies.length)];
 const randomNrSali = Math.floor(Math.random() * 6) + 1;
 
-
 movieNameElement.textContent = randomMovie;
 nrSaliElement.textContent = randomNrSali;
+
+let wyznaczonaSala;
+
+if (randomNrSali === 1) { 
+  wyznaczonaSala = document.getElementsByClassName('sala1')[0]
+  }
+if (randomNrSali === 2) { 
+  wyznaczonaSala = document.getElementsByClassName('sala2')[0]
+  }
+if (randomNrSali === 3) { 
+  wyznaczonaSala = document.getElementsByClassName('sala3')[0]
+  }
+if (randomNrSali === 4) { 
+  wyznaczonaSala = document.getElementsByClassName('sala4')[0]
+  }
+if (randomNrSali === 5) { 
+  wyznaczonaSala = document.getElementsByClassName('sala5')[0]
+  }
+if (randomNrSali === 6) {
+  wyznaczonaSala = document.getElementsByClassName('sala6')[0]
+  }
+
+console.log(wyznaczonaSala)
+
+
+
+function checkSalaCollision() {
+  const characterRect = character.getBoundingClientRect();
+  const salaRect = wyznaczonaSala.getBoundingClientRect();
+  
+  if (
+    characterRect.left < salaRect.right &&
+    characterRect.right > salaRect.left &&
+    characterRect.top < salaRect.bottom &&
+    characterRect.bottom > salaRect.top
+  ) {
+    console.log('Collision!');
+    timeLeft += 15;
+  
+  }
+}
+
+document.addEventListener("keydown", checkSalaCollision);
+
+
+
 
 
 

@@ -25,7 +25,7 @@ html, body {
     transform: translate(-50%, -50%);
     width: 8px;
     height: 8px;
-    background-color: red;
+    background-color: blue;
     border: 1.5px solid black;
   }
 
