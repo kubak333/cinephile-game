@@ -189,7 +189,7 @@ function bladderFunction() {
 
 const bladderInterval = setInterval(bladderFunction, 1000);
 
-const movies = ['Climax', 'Szatańskie tango', 'Midsommar', 'Wielkie piękno', 'Paterson', 'Służąca', 'Toni Erdmann'];
+const movies = ['100 sezonów', '15 godzin', '20 000 gatunków pszczół', '4psy', 'After', 'Alcarras', 'Atalanta', 'Blisko', 'Blue Jean', 'Bulion i inne namiętności', 'Był sobie kamień', 'Cicha dziewczyna', 'Cicha ziemia', 'Club Zero', 'Czarny kos, czarna jeżyna', 'Cztery córki', 'Delikwenci', 'Disco Boy', 'Emigracja wewnętrzna', 'Eureka', 'Femme', 'Genderacja', 'Genernauci', 'Heroiczny', 'How to have sex', 'Imago', 'Idol', 'Infinity pool', 'Kapitan Faggotron ratuje świat', 'Kicia Kocia mówi: Dzień dobty! <3', 'Kiedy opadną fale', 'Klątwa', 'Kokomo City', 'Koński ogon', 'La Chimera', 'Marcel Muszelka w różowych bucikach', 'Monster', 'Mutt', 'Niedźwiedzie nie istnieją', 'Odwieczna córka', 'Opadające liście', 'Pani Fang', 'Perfect Days', 'Piaffe', 'Piękna niewolnica', 'Płynne stany rozkoszy', 'Podejrzana', 'Polite Society', 'Poprzednie życie', 'Porwany','Powoli', 'Przejścia', 'Reality', 'Rów', 'Saint Omer', 'Samotna Żona', 'Samsara', 'Showing up', 'Silver Haze', 'Siostrzeństwo świętej sauny', 'Sklep', 'Stwór', 'Śmierć i śledź', 'Świat Apu', 'Totem', 'Trans-Europ-Express', 'Twarz meduzy', 'Vera', 'VIKA!', 'W suszarni', 'W żółtym kokonie', 'Xavier', 'Zamek', 'Zasada 34', 'Złe życie', ' Życie złe'];
 const movieNameElement = document.getElementById('movie-name');
 const nrSaliElement = document.getElementById('nr-sali');
 
@@ -377,3 +377,4 @@ createNpc();
 
 // TWORZĘ NOWEGO NPC CO 10 SEKUND
 const newNPC = setInterval(createNpc, 6000);
+
