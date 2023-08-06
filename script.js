@@ -293,9 +293,35 @@ const npcContainer = document.getElementById('map');
 const maxNpcs = 100;
 let npcCount = 5;
 let npcSpeed = 3; // Prędkość NPC (tak samo jak bohater)
+let changeInterval = 2000
 const npcSize = 8; // Rozmiar NPC
 
 const npcList = [];
+
+if (scoreCounter >= 1000) {
+  npcSpeed = 4
+  changeInterval = 1750
+};
+if (scoreCounter >= 2000) {
+  npcSpeed = 4.5
+  changeInterval = 1500
+};
+if (scoreCounter >= 3000) {
+  npcSpeed = 5
+  changeInterval = 1250
+};
+if (scoreCounter >= 4000) {
+  npcSpeed = 5.5
+  changeInterval = 1000
+};
+if (scoreCounter >= 5000) {
+  npcSpeed = 6
+  changeInterval = 500
+};
+
+
+
+
 
 function createNpc() {
   const npc = document.createElement('div');
@@ -316,7 +342,7 @@ function createNpc() {
     changeDirectionTimer: setInterval(() => {
       npcObj.direction.x = Math.random() > 0.5 ? 1 : -1;
       npcObj.direction.y = Math.random() > 0.5 ? 1 : -1;
-    }, 2000),
+    }, changeInterval),
   };
 
   npcList.push(npcObj);
