@@ -18,6 +18,14 @@ html, body {
     margin-right:auto;
   }
 
+  #heading-text-time {
+    font-size: 1.6rem;
+  }
+
+  #timer {
+    font-weight: 1000;
+  }
+
   #movie-name {
     font-weight: 800;
   }
@@ -38,6 +46,9 @@ html, body {
     width: 80%;
     height: 80%;
     background-color: white;
+    border: 5px solid rgb(10, 29, 85);
+    
+    
   }
 
   /* bohater */
@@ -50,6 +61,7 @@ html, body {
     height: 8px;
     background-color: blue;
     border: 1.5px solid black;
+    z-index: 1;
   }
 
 
@@ -75,6 +87,14 @@ html, body {
     border: 2px solid black;
   }
 
+  #health-bar-text {
+    position: absolute;
+    left: 2.4%;
+    bottom: 0%;
+    color: rgb(0, 0, 0);
+    font-size: 0.75rem;
+  }
+
   .bladder {
     position: absolute;
     height: 0%;
@@ -85,6 +105,13 @@ html, body {
     border: 2px solid black;
     }
 
+  #bladder-bar-text {
+    position: absolute;
+    right: 2.4%;
+    bottom: 0%;
+    color: black;
+    font-size: 0.75rem;
+  }
 
   /* sale */
   .sala1 {

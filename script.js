@@ -24,7 +24,7 @@ function scoreFunction() {
     clearInterval(scoreInterval);
     clearInterval(healthInterval);
     clearInterval(bladderInterval);
-    alert(`Czas minął! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+    alert(`The time is up! Your score is ${scoreCounter}! Refresh the page to play again.`);
   }
 }
 
@@ -32,47 +32,124 @@ const scoreInterval = setInterval(scoreFunction, 100);
 
 // BOHATER - MECHANIKA
 
+// const map = document.querySelector("#map");
+// const character = document.querySelector("#character");
+// const characterWidth = character.offsetWidth;
+// const characterHeight = character.offsetHeight;
+// let x = (map.offsetWidth - characterWidth) / 2;
+// let y = (map.offsetHeight - characterHeight) / 2;
+
+// function moveCharacter(event) {
+//   switch (event.code) {
+//     case "ArrowUp":
+//       if (y > 6) {
+//         y -= 6;
+//       }
+//       break;
+//     case "ArrowDown":
+//       if (y < map.offsetHeight - characterHeight) {
+//         y += 6;
+//       }
+//       break;
+//     case "ArrowLeft":
+//       if (x > 6) {
+//         x -= 6;
+//       }
+//       break;
+//     case "ArrowRight":
+//       if (x < map.offsetWidth - characterWidth) {
+//         x += 6;
+//       }
+//       break;
+//   }
+
+//   character.style.top = y + "px";
+//   character.style.left = x + "px";
+// }
+
+// document.addEventListener("keydown", moveCharacter);
+
+// window.addEventListener("resize", () => {
+//   x = (map.offsetWidth - characterWidth) / 2;
+//   y = (map.offsetHeight - characterHeight) / 2;
+// });
+
 const map = document.querySelector("#map");
 const character = document.querySelector("#character");
 const characterWidth = character.offsetWidth;
 const characterHeight = character.offsetHeight;
 let x = (map.offsetWidth - characterWidth) / 2;
 let y = (map.offsetHeight - characterHeight) / 2;
+let isMovingUp = false;
+let isMovingDown = false;
+let isMovingLeft = false;
+let isMovingRight = false;
+const moveDistance = 3.5;
+const diagonalMoveDistance = moveDistance / Math.sqrt(2);
 
-function moveCharacter(event) {
-  switch (event.code) {
-    case "ArrowUp":
-      if (y > 5) {
-        y -= 5;
-      }
-      break;
-    case "ArrowDown":
-      if (y < map.offsetHeight - characterHeight) {
-        y += 5;
-      }
-      break;
-    case "ArrowLeft":
-      if (x > 5) {
-        x -= 5;
-      }
-      break;
-    case "ArrowRight":
-      if (x < map.offsetWidth - characterWidth) {
-        x += 5;
-      }
-      break;
+function updateMovement() {
+  if (isMovingUp && y > diagonalMoveDistance) {
+    y -= diagonalMoveDistance;
+  }
+  if (isMovingDown && y < map.offsetHeight - characterHeight - diagonalMoveDistance) {
+    y += diagonalMoveDistance;
+  }
+  if (isMovingLeft && x > diagonalMoveDistance) {
+    x -= diagonalMoveDistance;
+  }
+  if (isMovingRight && x < map.offsetWidth - characterWidth - diagonalMoveDistance) {
+    x += diagonalMoveDistance;
   }
 
   character.style.top = y + "px";
   character.style.left = x + "px";
 }
 
-document.addEventListener("keydown", moveCharacter);
+document.addEventListener("keydown", (event) => {
+  switch (event.code) {
+    case "ArrowUp":
+      isMovingUp = true;
+      break;
+    case "ArrowDown":
+      isMovingDown = true;
+      break;
+    case "ArrowLeft":
+      isMovingLeft = true;
+      break;
+    case "ArrowRight":
+      isMovingRight = true;
+      break;
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  switch (event.code) {
+    case "ArrowUp":
+      isMovingUp = false;
+      break;
+    case "ArrowDown":
+      isMovingDown = false;
+      break;
+    case "ArrowLeft":
+      isMovingLeft = false;
+      break;
+    case "ArrowRight":
+      isMovingRight = false;
+      break;
+  }
+});
 
 window.addEventListener("resize", () => {
   x = (map.offsetWidth - characterWidth) / 2;
   y = (map.offsetHeight - characterHeight) / 2;
 });
+
+function animate() {
+  updateMovement();
+  requestAnimationFrame(animate);
+}
+
+animate();
 
 // PASEK ŻYCIA
 
@@ -87,7 +164,7 @@ function healthFunction() {
     clearInterval(scoreInterval);
     clearInterval(healthInterval);
     clearInterval(bladderInterval);
-    alert(`Zemdlał_ś z głodu! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+    alert(`You have fainted from hunger! Your score is ${scoreCounter}! Remember to visit bistro next time! Refresh the page to play again.`);
   }
 }
 
@@ -106,7 +183,7 @@ function bladderFunction() {
     clearInterval(scoreInterval);
     clearInterval(healthInterval);
     clearInterval(bladderInterval);
-    alert(`Nie zdążył_ś do toalety! Twój wynik to ${scoreCounter}! Odśwież stronę, by zagrać ponownie.`);
+    alert(`You didn't make it to the toilet! Your score is ${scoreCounter}! Remember to visit WC next time! Refresh the page to play again.`);
   }
 }
 
@@ -159,7 +236,7 @@ function checkSalaCollision() {
     characterRect.bottom > salaRect.top
   ) {
     console.log('Collision!');
-    timeLeft += 15;
+    timeLeft += 9;
     randomNrSali = Math.floor(Math.random() * 6) + 1;
     showMovieAndNrSali();
   }
@@ -213,7 +290,7 @@ document.addEventListener("keydown", checkBistroCollision);
 // NPC
 
 const npcContainer = document.getElementById('map');
-const maxNpcs = 50;
+const maxNpcs = 100;
 let npcCount = 5;
 let npcSpeed = 3; // Prędkość NPC (tak samo jak bohater)
 const npcSize = 8; // Rozmiar NPC
@@ -231,13 +308,15 @@ function createNpc() {
 
   const npcObj = {
     element: npc,
-    x: Math.random() * (map.offsetWidth - npcSize),
-    y: Math.random() * (map.offsetHeight - npcSize),
+    // x: Math.random() * (map.offsetWidth - npcSize),
+    // y: Math.random() * (map.offsetHeight - npcSize),
+    x: ((map.offsetWidth - characterWidth) / 2) + 25,
+    y: ((map.offsetHeight - characterHeight) / 2) + 25,
     direction: { x: 1, y: 0 },
     changeDirectionTimer: setInterval(() => {
       npcObj.direction.x = Math.random() > 0.5 ? 1 : -1;
       npcObj.direction.y = Math.random() > 0.5 ? 1 : -1;
-    }, 4000),
+    }, 2000),
   };
 
   npcList.push(npcObj);
@@ -268,7 +347,7 @@ function moveNpcs() {
       characterRect.bottom > npcRect.top
     ) {
       if (timeLeft >= 3) {
-        timeLeft -= 3;
+        timeLeft -= 2;
         clearInterval(npcObj.changeDirectionTimer);
         setTimeout(() => {
           npcObj.changeDirectionTimer = setInterval(() => {
@@ -281,15 +360,15 @@ function moveNpcs() {
   });
 }
 
-function checkNpcCount() {
-  if (npcCount < maxNpcs && scoreCounter >= npcCount * 300) {
-    npcCount++;
-    createNpc();
-  }
-}
+// function checkNpcCount() {
+//   if (npcCount < maxNpcs && scoreCounter >= npcCount * 300) {
+//     npcCount++;
+//     createNpc();
+//   }
+// }
 
 setInterval(moveNpcs, 1000 / 60); // Aktualizacja ruchu NPC co 60 klatek na sekundę
-setInterval(checkNpcCount, 1000); // Sprawdzanie co sekundę, czy trzeba dodać nowego NPC
+// setInterval(checkNpcCount, 1000); // Sprawdzanie co sekundę, czy trzeba dodać nowego NPC
 
 // TWORZĘ 3 NPC NA START
 createNpc();
@@ -297,4 +376,4 @@ createNpc();
 createNpc();
 
 // TWORZĘ NOWEGO NPC CO 10 SEKUND
-const newNPC = setInterval(createNpc, 10000);
+const newNPC = setInterval(createNpc, 6000);
