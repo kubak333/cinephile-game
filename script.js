@@ -1,4 +1,6 @@
-// LICZNIK CZASU
+alert("In the game you play the role of a film festival participant. You have to run to watch selected movie to the selected movie theater.\n\nDon't bump into other spectators, it wastes time.\nUse arrows to control the character.\nRemember to visit the toilet and the bistro from time to time.\n\nThe game is designed for computers, not mobile devices.\n\nPress OK to start the game.")
+
+// TIME COUNTER
 
 const timerElement = document.getElementById('timer');
 let timeLeft = 30;
@@ -11,7 +13,7 @@ function counter() {
 const countdownTimer = setInterval(counter, 1000);
 
 
-// LICZNIK PUNKTÓW 
+// POINTS COUNTER
 
 const scoreElement = document.getElementById('score');
 let scoreCounter = 0;
@@ -30,49 +32,7 @@ function scoreFunction() {
 
 const scoreInterval = setInterval(scoreFunction, 100);
 
-// BOHATER - MECHANIKA
-
-// const map = document.querySelector("#map");
-// const character = document.querySelector("#character");
-// const characterWidth = character.offsetWidth;
-// const characterHeight = character.offsetHeight;
-// let x = (map.offsetWidth - characterWidth) / 2;
-// let y = (map.offsetHeight - characterHeight) / 2;
-
-// function moveCharacter(event) {
-//   switch (event.code) {
-//     case "ArrowUp":
-//       if (y > 6) {
-//         y -= 6;
-//       }
-//       break;
-//     case "ArrowDown":
-//       if (y < map.offsetHeight - characterHeight) {
-//         y += 6;
-//       }
-//       break;
-//     case "ArrowLeft":
-//       if (x > 6) {
-//         x -= 6;
-//       }
-//       break;
-//     case "ArrowRight":
-//       if (x < map.offsetWidth - characterWidth) {
-//         x += 6;
-//       }
-//       break;
-//   }
-
-//   character.style.top = y + "px";
-//   character.style.left = x + "px";
-// }
-
-// document.addEventListener("keydown", moveCharacter);
-
-// window.addEventListener("resize", () => {
-//   x = (map.offsetWidth - characterWidth) / 2;
-//   y = (map.offsetHeight - characterHeight) / 2;
-// });
+// HERO - MECHANICS
 
 const map = document.querySelector("#map");
 const character = document.querySelector("#character");
@@ -151,7 +111,7 @@ function animate() {
 
 animate();
 
-// PASEK ŻYCIA
+// LIFE BAR
 
 const healthbar = document.querySelector('.health');
 let healthPoints = 80;
@@ -170,7 +130,7 @@ function healthFunction() {
 
 const healthInterval = setInterval(healthFunction, 700);
 
-// PASEK PĘCHERZA
+// BLADDER BAR
 
 const bladderbar = document.querySelector('.bladder');
 let bladderPoints = 0;
@@ -189,7 +149,10 @@ function bladderFunction() {
 
 const bladderInterval = setInterval(bladderFunction, 1000);
 
+// SELECTER THEATER & MOVIE
+
 const movies = ['100 sezonów', '15 godzin', '20 000 gatunków pszczół', '4psy', 'After', 'Alcarras', 'Atalanta', 'Blisko', 'Blue Jean', 'Bulion i inne namiętności', 'Był sobie kamień', 'Cicha dziewczyna', 'Cicha ziemia', 'Club Zero', 'Czarny kos, czarna jeżyna', 'Cztery córki', 'Delikwenci', 'Disco Boy', 'Emigracja wewnętrzna', 'Eureka', 'Femme', 'Genderacja', 'Genernauci', 'Heroiczny', 'How to have sex', 'Imago', 'Idol', 'Infinity pool', 'Kapitan Faggotron ratuje świat', 'Kicia Kocia mówi: Dzień dobty! <3', 'Kiedy opadną fale', 'Klątwa', 'Kokomo City', 'Koński ogon', 'La Chimera', 'Marcel Muszelka w różowych bucikach', 'Monster', 'Mutt', 'Niedźwiedzie nie istnieją', 'Odwieczna córka', 'Opadające liście', 'Pani Fang', 'Perfect Days', 'Piaffe', 'Piękna niewolnica', 'Płynne stany rozkoszy', 'Podejrzana', 'Polite Society', 'Poprzednie życie', 'Porwany','Powoli', 'Przejścia', 'Reality', 'Rów', 'Saint Omer', 'Samotna Żona', 'Samsara', 'Showing up', 'Silver Haze', 'Siostrzeństwo świętej sauny', 'Sklep', 'Stwór', 'Śmierć i śledź', 'Świat Apu', 'Totem', 'Trans-Europ-Express', 'Twarz meduzy', 'Vera', 'VIKA!', 'W suszarni', 'W żółtym kokonie', 'Xavier', 'Zamek', 'Zasada 34', 'Złe życie', ' Życie złe'];
+
 const movieNameElement = document.getElementById('movie-name');
 const nrSaliElement = document.getElementById('nr-sali');
 
@@ -221,7 +184,7 @@ function showMovieAndNrSali() {
   }
 }
 
-// KOLIZJA Z SALĄ - ZMIANA FILMU
+// THEATER COLLISION - ADD TIME
 
 showMovieAndNrSali();
 
@@ -245,7 +208,7 @@ function checkSalaCollision() {
 document.addEventListener("keydown", checkSalaCollision);
 
 
-// KOLIZJA Z WC I PUNKTY PĘCHERZA
+// WC COLLISION - ADD BLADDER POINTS
 
 const wc = document.querySelector(".wc");
 
@@ -266,7 +229,7 @@ function checkWcCollision() {
 
 document.addEventListener("keydown", checkWcCollision);
 
-// KOLIZJA Z BISTRO I PUNKTY GŁODU
+// BISTRO COLLISION - ADD HEALTH
 
 const bistro = document.querySelector(".bistro");
 
@@ -319,9 +282,7 @@ if (scoreCounter >= 5000) {
   changeInterval = 500
 };
 
-
-
-
+// NPC CREATION
 
 function createNpc() {
   const npc = document.createElement('div');
@@ -334,8 +295,6 @@ function createNpc() {
 
   const npcObj = {
     element: npc,
-    // x: Math.random() * (map.offsetWidth - npcSize),
-    // y: Math.random() * (map.offsetHeight - npcSize),
     x: ((map.offsetWidth - characterWidth) / 2) + 25,
     y: ((map.offsetHeight - characterHeight) / 2) + 25,
     direction: { x: 1, y: 0 },
@@ -347,6 +306,8 @@ function createNpc() {
 
   npcList.push(npcObj);
 }
+
+// NPC MOVEMENT
 
 function moveNpcs() {
   npcList.forEach((npc) => {
@@ -386,21 +347,13 @@ function moveNpcs() {
   });
 }
 
-// function checkNpcCount() {
-//   if (npcCount < maxNpcs && scoreCounter >= npcCount * 300) {
-//     npcCount++;
-//     createNpc();
-//   }
-// }
+setInterval(moveNpcs, 1000 / 60); // UPDATE OF NPC POSITION EVERY 60 FRAMES PER SECOND
 
-setInterval(moveNpcs, 1000 / 60); // Aktualizacja ruchu NPC co 60 klatek na sekundę
-// setInterval(checkNpcCount, 1000); // Sprawdzanie co sekundę, czy trzeba dodać nowego NPC
-
-// TWORZĘ 3 NPC NA START
+// CREATE 3 NEW NPCS AT THE BEGINNING OF THE GAME
 createNpc();
 createNpc();
 createNpc();
 
-// TWORZĘ NOWEGO NPC CO 10 SEKUND
+// CREATING NEW NPC EVERY 6 SECONDS
 const newNPC = setInterval(createNpc, 6000);
 
