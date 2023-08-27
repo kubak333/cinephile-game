@@ -68,7 +68,7 @@ Otwórz plik index.html w dowolnej przeglądarce internetowej.
 Przeglądarka internetowa (zalecane najnowsze wersje)
 
 ## Instalacja
-Instalacja nie jest wymagana, ponieważ jest to prosty projekt oparty na waniliowym JS, nie ma żadnych importowanych mediów. Wystarczy otworzyć plik index.html w przeglądarce.
+Instalacja nie jest wymagana, ponieważ jest to prosty projekt oparty na JS, nie ma żadnych importowanych mediów. Wystarczy otworzyć plik index.html w przeglądarce.
 
 ## Podgląd
 Podgląd strony dostępny jest pod adresem: kubak333.github.io/cinephile-game
