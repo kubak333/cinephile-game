@@ -4,7 +4,7 @@
 
 It is a simulator of a film festival participant. The game was created as part of learning programming and out of my love for cinema.
 
-*Content:*.
+*Content:*
 - Character control and rules
 - Instructions for use
 - Requirements
@@ -44,7 +44,7 @@ If you have questions or comments about this project, you can contact me by emai
 
 Ta gra to symulator uczestnika festiwalu filmowego. Gra powstała w ramach nauki programowania i z mojej miłości do kina.
 
-*Zawartość:*.
+*Zawartość:*
 - Sterowanie postacią i zasady gry
 - Instrukcja użytkowania
 - Wymagania
